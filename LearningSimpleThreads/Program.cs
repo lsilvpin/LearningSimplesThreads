@@ -29,14 +29,14 @@ namespace LearningSimpleThreads
       Thread t = new Thread(new ThreadStart(ThreadProcedure));
       t.Start(); // Ele começa a funcionar paralelamente
 
-      Thread.Sleep(2000); // A Thread principal dorme por 2 segundos
-
       // Ações da Thread Principal
-      for (int i = 0; i<10; i++)
+      for (int i = 0; i<5; i++)
       {
         Console.WriteLine("-----------------------------------");
         Thread.Sleep(500);
       }
+
+      t.Join(); // Main Thread espera a t (Thread) finalizar para depois continuar executando
 
       Console.WriteLine("Aperte enter para finalizar");
       Console.ReadLine();
